@@ -12,7 +12,6 @@ class WeekdayField(models.CommaSeparatedIntegerField):
 
     Stores as CSInt.
     """
-    __metaclass__ = models.SubfieldBase
 
     description = "CSV Weekday Field"
     default_validators = [validate_csv]
