@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import validate_comma_separated_integer_list
 from weekday_field.forms import WeekdayFormField
 from weekday_field import utils
 
