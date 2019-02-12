@@ -3,10 +3,7 @@ from django.db import models
 from weekday_field.forms import WeekdayFormField
 from weekday_field import utils
 
-def validate_csv(data):
-    return all([isinstance(i, int) for i in data])
-
-class WeekdayField(models.CommaSeparatedIntegerField):
+class WeekdayField(models.CharField):
     """
     Field to simplify the handling of a multiple choice of None->all days.
 
@@ -14,7 +11,7 @@ class WeekdayField(models.CommaSeparatedIntegerField):
     """
 
     description = "CSV Weekday Field"
-    default_validators = [validate_csv]
+    default_validators = [validate_comma_separated_integer_list]
 
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 14
